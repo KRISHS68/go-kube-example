@@ -1,10 +1,17 @@
 # example file for https://direnv.net/
 # save it as .envrc and configure your environment
+
+# You need a GitHub token. See README
 export GITHUB_TOKEN=ghpO....
+
+# The container image registry where ko will push
+# images to.
 export KO_DOCKER_REPO=ghcr.io/YOUR_GITHUB_ACCOUNT
 
-# Fancy command line prompt
-#export STARSHIP_CONFIG=~/.config/starship.kubernetes.toml
-
+# If you have several kube configs, then you can define
+# the matching config here.
 #export KUBECONFIG=~/.kube/host-cluster-kubeconfig
+
+# Optional: Fancy command line prompt
+#export STARSHIP_CONFIG=~/.config/starship.kubernetes.toml
 

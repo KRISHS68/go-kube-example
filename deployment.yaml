@@ -1,0 +1,23 @@
+# first version copied from
+# https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-kube-example-deployment
+  labels:
+    app: go-kube-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-kube-example
+  template:
+    metadata:
+      labels:
+        app: go-kube-example
+    spec:
+      containers:
+        - name: go-kube-example
+          image: ko://github.com/guettli/go-kube-example # Modify the URL, if you forked the repo
+          ports:
+            - containerPort: 8080
