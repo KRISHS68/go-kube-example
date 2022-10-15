@@ -1,3 +1,5 @@
+# example file for https://direnv.net/
+# save it as .envrc and configure your environment
 export GITHUB_TOKEN=ghpO....
 export KO_DOCKER_REPO=ghcr.io/YOUR_GITHUB_ACCOUNT
 
