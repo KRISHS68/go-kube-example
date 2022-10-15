@@ -20,7 +20,7 @@ func headers(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-var port = 8090
+var port = 8080
 
 func main() {
 	http.HandleFunc("/headers", headers)
