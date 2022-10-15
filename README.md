@@ -30,24 +30,25 @@ the new image, and then create the deployment via your current `kubectl` config.
 
 If you do this for the first time, it will fail, since the image is not public yet.
 
-The navigate to the URL of the image (just add https:// before ghcr.io).
+Then navigate to the URL of the image (just add https:// before ghcr.io).
 
 Then "Change package visibility" (in the box "Danger Zone") to public.
 
 Execute above `ko apply` command again, and then the deployment will be available.
 
-# Use the application
+# Deployment
 
-You can use k8slens, k9s or kubectl to have a look at your container.
+You can use k8slens, k9s or kubectl to have a look at
+your [deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 ```
 k port-forward deployments/go-kube-example-deployment 8080:8080
 ```
 
-Now you can see the running go code. It shows you the http request headers:
+Now you can see the running Go code. It shows you the http request headers:
 
 ```
-curl http://localhost:8080/headers
+curl http://localhost:8080/
 ```
 
 Up to now the port 8080 of our application is only easily accessible
@@ -56,7 +57,8 @@ to other pods in the cluster we need a service.
 
 # Service
 
-To make the app available for other pods, we need to create a service.
+To make the app available for other pods,
+we need to create a [service](https://kubernetes.io/docs/concepts/services-networking/service/)
 
 ```
 k apply -f service.yaml
@@ -67,7 +69,7 @@ Start a temporary [netshoot](https://github.com/nicolaka/netshoot) container:
 ```
 k run -it --rm --image=nicolaka/netshoot foo
 
-foo> curl http://go-kube-example-service:8080/headers
+foo> curl http://go-kube-example-service:8080/
 
 foo> nslookup go-kube-example-service
 
