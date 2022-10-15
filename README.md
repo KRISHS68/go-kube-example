@@ -8,6 +8,10 @@ Install go. For example `sudo snap install go --classic` for Ubuntu.
 
 Install ko-build: https://github.com/ko-build/ko
 
+You need a running kubernetes (or minikube) and `kubectl`.
+
+In this text `k` is an alias for `kubectl`
+
 # Config
 
 The file `dot-envrc-example` contains environment variables which are
@@ -44,5 +48,33 @@ Now you can see the running go code. It shows you the http request headers:
 
 ```
 curl http://localhost:8080/headers
+```
+
+Up to now the port 8080 of our application is only easily accessible
+for other containers which run in this pod. To make the port available
+to other pods in the cluster we need a service.
+
+# Service
+
+To make the app available for other pods, we need to create a service.
+
+```
+k apply -f service.yaml
+```
+
+Start a temporary [netshoot](https://github.com/nicolaka/netshoot) container:
+
+```
+k run -it --rm --image=nicolaka/netshoot foo
+
+foo> curl http://go-kube-example-service:8080/headers
+
+foo> nslookup go-kube-example-service
+
+Server:         10.96.0.10
+Address:        10.96.0.10#53
+
+Name:   go-kube-example-service.default.svc.cluster.local
+Address: 10.103.211.158
 ```
 
