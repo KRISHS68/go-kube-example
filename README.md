@@ -80,3 +80,19 @@ Name:   go-kube-example-service.default.svc.cluster.local
 Address: 10.103.211.158
 ```
 
+# Ingress
+
+```
+k apply -f ingress.yaml
+```
+
+```
+❯ k get ingress go-kube-example-ingress 
+
+NAME                      CLASS   HOSTS   ADDRESS                               PORTS   AGE
+go-kube-example-ingress   nginx   *       167.235.216.87,2a01:4f8:c01e:23f::1   80      23h
+```
+
+--> http://167.235.216.87
+
+
