@@ -4,8 +4,11 @@ metadata:
   name: go-kube-example-service
   labels:
     app: go-kube-example
+  annotations:
+    load-balancer.hetzner.cloud/location: fsn1
 spec:
   ports:
     - port: 8080
   selector:
     app: go-kube-example
+  type: LoadBalancer
