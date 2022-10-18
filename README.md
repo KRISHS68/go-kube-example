@@ -92,6 +92,12 @@ Address: 10.103.211.158
 
 # Ingress
 
+Up to now the service is only available inside the cluster.
+
+
+
+Now we make the service available on the internet via an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+
 ```
 k apply -f ingress.yaml
 ```
