@@ -1,4 +1,4 @@
-# Example for deploying a simple Golang application to Kubernetes
+# Example for deploying a simple Go application to Kubernetes
 
 Go source is in main.go. It is a simple http server which returns the http request headers.
 
@@ -11,6 +11,16 @@ Install ko-build: https://github.com/ko-build/ko
 You need a running kubernetes (or minikube) and `kubectl`.
 
 In this text `k` is an alias for `kubectl`
+
+# Develop locally (without containers)
+
+This example shows how to deploy a go application to Kubernetes. But don't do
+this during your inner development loop (edit-compile-test). 
+
+Tools like [tilt](https://tilt.dev/), [devspace](https://github.com/loft-sh/devspace) or [Skaffold](https://skaffold.dev/) can help
+you to easily run your code in Kubernetes during development. But it is more easy if you don't run your
+code in Kubernetes during development. 
+
 
 # Config
 
@@ -81,6 +91,12 @@ Address: 10.103.211.158
 ```
 
 # Ingress
+
+Up to now the service is only available inside the cluster.
+
+
+
+Now we make the service available on the internet via an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 ```
 k apply -f ingress.yaml
