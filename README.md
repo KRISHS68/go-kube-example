@@ -95,4 +95,4 @@ go-kube-example-ingress   nginx   *       167.235.216.87,2a01:4f8:c01e:23f::1   
 
 --> http://167.235.216.87
 
-
+https://console.hetzner.cloud/
