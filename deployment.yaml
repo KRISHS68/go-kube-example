@@ -19,5 +19,6 @@ spec:
       containers:
         - name: go-kube-example
           image: ko://github.com/guettli/go-kube-example # Modify the URL, if you forked the repo
+          args: ["--foobar"]
           ports:
             - containerPort: 8080

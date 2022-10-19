@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"golang.org/x/exp/maps"
 	"net/http"
+	"os"
 	"sort"
 )
 
@@ -13,6 +14,7 @@ func headers(w http.ResponseWriter, req *http.Request) {
 	keys := maps.Keys(req.Header)
 	sort.Strings(keys)
 	fmt.Fprintf(w, "Welcome to go-kube-example\n\n")
+	fmt.Fprintf(w, "Arguments: %+v\n\n", os.Args)
 	for _, key := range keys {
 		headers := req.Header[key]
 		for _, h := range headers {
