@@ -112,3 +112,10 @@ go-kube-example-ingress   nginx   *       167.235.216.87,2a01:4f8:c01e:23f::1   
 --> http://167.235.216.87
 
 https://console.hetzner.cloud/
+
+# Related
+
+This example is part of my talk [Kubernetes, Golang & Cluster-API](https://docs.google.com/presentation/d/1VG0XtUK48aJ7FITC9A7vuiI9h8YLRBgqHq7oqxFiofY/edit#slide=id.g16c3fde7cd8_0_79)
+
+[Me, Working-out-Load](//github.com/guettli/wol)
+
