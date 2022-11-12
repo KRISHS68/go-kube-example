@@ -15,6 +15,7 @@ func headers(w http.ResponseWriter, req *http.Request) {
 	sort.Strings(keys)
 	fmt.Fprintf(w, "Welcome to go-kube-example\n\n")
 	fmt.Fprintf(w, "Arguments: %+v\n\n", os.Args)
+	fmt.Printf("Request: %s\n", req.RequestURI)
 	for _, key := range keys {
 		value := req.Header.Get(key)
 		fmt.Fprintf(w, "%v: %v\n", key, value)
