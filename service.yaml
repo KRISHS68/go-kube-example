@@ -9,4 +9,3 @@ spec:
     - port: 8080
   selector:
     app: go-kube-example
-  type: LoadBalancer
